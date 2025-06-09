@@ -5,7 +5,7 @@
 class TextScramble {
   constructor(el) {
     this.el = el
-    this.chars = '!<>-_\\/[]{}—=+*^?#________'
+    this.chars = '!<>-_\\/[]{}—=+*^?#________@().'
     this.update = this.update.bind(this)
   }
   setText(newText) {
@@ -65,38 +65,67 @@ const phrases = [
   'just as I did',
   'that there\'s a difference',
   'between knowing the path',
-  'and walking the path'
+  'and walking the path <br> - Morpheus',
+  [' this' , 'is' , 'a test' , 'for a' , 'nested list or whatever it is']
 ]
-
-const el = document.querySelector('.glitchText')
-const fx = new TextScramble(el)
-
-let counter = 0
-const next = () => {
-  fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 800)
-  })
-  counter = (counter + 1) % phrases.length
-}
-
-next()
-
-const elm = document.querySelector('.iAm')
-const fx1 = new TextScramble(elm)
 
 const whoAmi = [
     'Prajwal',
     'Programmer',
     'Science Enthusiast',
     'Engineer Undergrad',
-    'Skeptical'
+    'Skeptical',
+    'Cinephile'
 ]
+
+const things_i_do = [
+    'Write code in Python , Java , C. (I also write small scripts in bash, pwsh,... )' ,
+    'Also do some basic web-dev' ,
+    'Mess with my Computer all day',
+    'Build random things',
+    'Watch Movies (I Love it)',
+    'Put my brain into Default Mode'
+]
+
+const el = document.querySelector('.glitchText')
+const fx = new TextScramble(el)
+
+let counter = 0
+const morpheus_said = () => {
+  fx.setText(phrases[counter]).then(() => {
+    setTimeout(morpheus_said, 800)
+  })
+  counter = (counter + 1) % phrases.length
+}
+
+// morpheus_said()
+
+
+// ________________For the I am Heading/title/.... _____________ 
+const elm = document.querySelector('.iAm')
+const fx1 = new TextScramble(elm)
+
+
 let counterForIam = 0
-const next2 = () => {
+const my_characteristics = () => {
   fx1.setText(whoAmi[counterForIam]).then(() => {
-    setTimeout(next2, 800)
+    setTimeout(my_characteristics, 800)
   })
   counterForIam = (counterForIam + 1) % whoAmi.length
 }
 
-next2()
+my_characteristics()
+
+// ___________ what I Do________
+const elm2 = document.querySelector('.iDo')
+const fx2 = new TextScramble(elm2)
+
+let counterForWhatIDo = 0
+const whatIDo = () => {
+  fx2.setText(things_i_do[counterForWhatIDo]).then(() => {
+    setTimeout(whatIDo, 3000)
+  })
+  counterForWhatIDo = (counterForWhatIDo + 1) % things_i_do.length
+}
+
+whatIDo()
