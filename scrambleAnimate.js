@@ -56,9 +56,7 @@ class TextScramble {
   }
 }
 
-// ——————————————————————————————————————————————————
-// Example
-// ——————————————————————————————————————————————————
+// text 
 
 const phrases = [
   'Neo,',
@@ -82,3 +80,23 @@ const next = () => {
 }
 
 next()
+
+const elm = document.querySelector('.iAm')
+const fx1 = new TextScramble(elm)
+
+const whoAmi = [
+    'Prajwal',
+    'Programmer',
+    'Science Enthusiast',
+    'Engineer Undergrad',
+    'Skeptical'
+]
+let counterForIam = 0
+const next2 = () => {
+  fx1.setText(whoAmi[counterForIam]).then(() => {
+    setTimeout(next2, 800)
+  })
+  counterForIam = (counterForIam + 1) % whoAmi.length
+}
+
+next2()
