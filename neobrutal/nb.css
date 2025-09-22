@@ -1,0 +1,401 @@
+/* ============================================================
+   nb.css — Neobrutalist Design Library by Prajwal
+   No frameworks. No dependencies. Pure stubborn CSS.
+   ============================================================ */
+
+/* ── 0. Custom Properties ─────────────────────────────── */
+:root {
+  --black:   #0a0a0a;
+  --white:   #f5f0e8;   /* warm cream, not sterile white */
+  --yellow:  #FFE000;
+  --red:     #FF2D2D;
+  --blue:    #0057FF;
+  --green:   #00CC44;
+  --purple:  #9B00FF;
+
+  --border:  3px solid var(--black);
+  --border-thick: 4px solid var(--black);
+  --shadow:  5px 5px 0 0 var(--black);
+  --shadow-sm: 3px 3px 0 0 var(--black);
+  --shadow-lg: 8px 8px 0 0 var(--black);
+
+  --font-sans: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+
+  --gap: clamp(1rem, 4vw, 2rem);
+  --max-w: 1100px;
+}
+
+/* ── 1. Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black);
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; }
+
+/* ── 3. Typography ────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2.8rem, 8vw, 7rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
+
+p { max-width: 65ch; }
+
+.mono { font-family: var(--font-mono); }
+
+/* ── 4. Layout ────────────────────────────────────────── */
+.nb-container {
+  width: min(var(--max-w), 100% - 2rem);
+  margin-inline: auto;
+}
+
+.nb-section {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  border-top: var(--border);
+}
+
+.nb-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--gap);
+}
+
+.nb-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--gap);
+}
+
+/* ── 5. Cards ─────────────────────────────────────────── */
+.nb-card {
+  border: var(--border-thick);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  background: var(--white);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  position: relative;
+}
+
+.nb-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.nb-card.yellow { background: var(--yellow); }
+.nb-card.red    { background: var(--red); color: var(--white); }
+.nb-card.blue   { background: var(--blue); color: var(--white); }
+.nb-card.green  { background: var(--green); }
+.nb-card.black  { background: var(--black); color: var(--white); }
+
+/* ── 6. Buttons ───────────────────────────────────────── */
+.nb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  border: var(--border-thick);
+  box-shadow: var(--shadow);
+  padding: 0.6em 1.2em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  background: var(--yellow);
+  color: var(--black);
+  text-decoration: none;
+  transition: transform 0.1s, box-shadow 0.1s;
+  user-select: none;
+  letter-spacing: 0.01em;
+}
+
+.nb-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 0 var(--black);
+}
+
+.nb-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--black);
+}
+
+.nb-btn.blue   { background: var(--blue);   color: #fff; }
+.nb-btn.red    { background: var(--red);    color: #fff; }
+.nb-btn.green  { background: var(--green);  color: var(--black); }
+.nb-btn.black  { background: var(--black);  color: var(--white); }
+.nb-btn.white  { background: var(--white);  color: var(--black); }
+
+/* ── 7. Tags / Badges ─────────────────────────────────── */
+.nb-tag {
+  display: inline-block;
+  border: 2px solid var(--black);
+  box-shadow: 2px 2px 0 var(--black);
+  padding: 0.2em 0.65em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  background: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nb-tag.yellow { background: var(--yellow); }
+.nb-tag.red    { background: var(--red);    color: #fff; }
+.nb-tag.blue   { background: var(--blue);   color: #fff; }
+.nb-tag.green  { background: var(--green); }
+
+/* ── 8. Marquee / Ticker ──────────────────────────────── */
+.nb-marquee-wrap {
+  overflow: hidden;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  background: var(--black);
+  color: var(--yellow);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-block: 0.55rem;
+  white-space: nowrap;
+}
+
+.nb-marquee-inner {
+  display: inline-block;
+  animation: nb-scroll 22s linear infinite;
+}
+
+.nb-marquee-inner span {
+  display: inline-block;
+  padding-inline: 2rem;
+}
+
+.nb-marquee-inner span::after {
+  content: ' ✦ ';
+  opacity: 0.6;
+}
+
+@keyframes nb-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── 9. Highlight / Underline ─────────────────────────── */
+.nb-hl {
+  background: var(--yellow);
+  padding-inline: 0.15em;
+}
+.nb-hl.red   { background: var(--red);   color: #fff; }
+.nb-hl.blue  { background: var(--blue);  color: #fff; }
+.nb-hl.green { background: var(--green); }
+
+/* ── 10. Sticker (floating image element) ─────────────── */
+.nb-sticker {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Draggable images restore pointer-events */
+.nb-sticker.nb-draggable,
+.nb-draggable {
+  pointer-events: auto;
+}
+
+/* ── 10b. Neobrutalist image frame ────────────────────── */
+/*
+  Usage: <img class="nb-img-frame"> or <img class="nb-img-frame tilt-right">
+  Thick border + hard shadow + optional tilt. No blur. No rounded corners.
+*/
+.nb-img-frame {
+  display: block;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-lg);
+  /* tiny tilt so it looks intentional, not forgotten */
+  transform: rotate(-1.5deg);
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease;
+  background: var(--black); /* letterbox fallback */
+  max-width: 100%;
+}
+
+.nb-img-frame:hover {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* tilt modifiers */
+.nb-img-frame.tilt-right { transform: rotate(2deg); }
+.nb-img-frame.tilt-right:hover { transform: rotate(0deg) translateY(-3px); }
+.nb-img-frame.tilt-none  { transform: none; }
+
+/* draggable cursor feedback */
+.nb-draggable {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+.nb-draggable.dragging {
+  cursor: grabbing;
+  /* lifted feel while dragging */
+  box-shadow: 12px 12px 0 0 var(--black) !important;
+  z-index: 9000;
+}
+
+/* Figure wrapper for framed images */
+.nb-img-figure {
+  display: inline-block; /* shrink-wrap around the image */
+  margin: 0;
+}
+
+.nb-img-caption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  box-shadow: 2px 2px 0 var(--black);
+  padding: 0.18em 0.6em;
+  display: block;
+  text-align: center;
+  /* shift the caption under the tilted image */
+  margin-top: -2px; /* flush against the bottom border */
+}
+
+/* ── 11. Typewriter cursor ────────────────────────────── */
+.nb-caret {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--black);
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  animation: nb-blink 0.75s step-end infinite;
+}
+
+@keyframes nb-blink {
+  50% { opacity: 0; }
+}
+
+/* ── 12. Divider ──────────────────────────────────────── */
+.nb-divider {
+  border: none;
+  border-top: var(--border-thick);
+  margin-block: 2.5rem;
+}
+
+/* ── 13. Social link list ─────────────────────────────── */
+.nb-social-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 0.85rem 1.2rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: var(--white);
+  transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+}
+
+.nb-social-item:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 0 var(--black);
+  background: var(--yellow);
+}
+
+.nb-social-item .icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* ── 14. Easter-egg reveal ────────────────────────────── */
+.nb-secret {
+  position: relative;
+  display: inline-block;
+}
+
+.nb-secret-reveal {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--black);
+  color: var(--yellow);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.4em 0.8em;
+  white-space: nowrap;
+  border: 2px solid var(--yellow);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.nb-secret:hover .nb-secret-reveal,
+.nb-secret:focus-within .nb-secret-reveal {
+  display: block;
+}
+
+/* ── 15. Scroll-reveal fade-up ────────────────────────── */
+.nb-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.nb-reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── 16. Utility classes ──────────────────────────────── */
+.flex         { display: flex; }
+.flex-col     { flex-direction: column; }
+.items-center { align-items: center; }
+.gap-sm       { gap: 0.5rem; }
+.gap-md       { gap: 1rem; }
+.gap-lg       { gap: 2rem; }
+.mt-sm        { margin-top: 0.5rem; }
+.mt-md        { margin-top: 1rem; }
+.mt-lg        { margin-top: 2rem; }
+.mb-md        { margin-bottom: 1rem; }
+.mb-lg        { margin-bottom: 2rem; }
+.fw-bold      { font-weight: 800; }
+.text-mono    { font-family: var(--font-mono); }
+.text-sm      { font-size: 0.85rem; }
+.text-muted   { opacity: 0.55; }
+.uppercase    { text-transform: uppercase; }
+.relative     { position: relative; }
+.overflow-h   { overflow: hidden; }
+
+/* ── 17. Responsive helpers ───────────────────────────── */
+@media (max-width: 640px) {
+  .hide-mobile { display: none !important; }
+}

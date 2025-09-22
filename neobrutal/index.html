@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8YKCR51X5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G8YKCR51X5');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prajwal Praveen — CS undergrad, builder, tinkerer. Not your average IT guy.">
+  <title>prajwal - neobrutal</title>
+
+  <!-- Fonts: Space Grotesk + Space Mono via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Neobrutalist design system -->
+  <link rel="stylesheet" href="nb.css">
+  <link rel="stylesheet" href="page.css">
+
+  <!-- Favicon: simple "P" in yellow -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFE000'/%3E%3Crect width='100' height='100' fill='none' stroke='%230a0a0a' stroke-width='8'/%3E%3Ctext x='50' y='72' font-size='68' font-family='Arial Black,sans-serif' font-weight='900' fill='%230a0a0a' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAV
+  ════════════════════════════════════════════════════════ -->
+  <nav class="nb-nav">
+    <div class="nb-container nb-nav-inner">
+      <a href="#hero" class="nb-nav-logo">P://</a>
+      <div class="nb-nav-links">
+        <a href="#about"     class="nb-nav-link"><span>whoami</span></a>
+        <a href="#do"        class="nb-nav-link"><span>what I do</span></a>
+        <a href="#manifesto" class="nb-nav-link"><span>manifesto</span></a>
+        <a href="#socials"   class="nb-nav-link"><span>socials</span></a>
+        <a href="#egg"       class="nb-nav-link" style="display: none;" ><span>???</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════ -->
+  <header class="hero" id="hero">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="hero-accent-box" aria-hidden="true"></div>
+
+    <div class="nb-container">
+      <div class="hero-eyebrow">
+        <span class="nb-tag red">Live</span>
+        &nbsp;CS Undergrad · Builder · Tinkerer
+      </div>
+
+      <h1 class="hero-name">
+        <span class="filled">Prajwal</span><br>
+        <span class="stroke">Praveen</span>
+      </h1>
+
+      <p class="hero-tagline">
+        <span class="nb-hl">Your friendly neighbourhood IT guy</span>
+        <br>
+      <br>
+        <span
+          data-typewriter="Programmer|CS Undergrad|First Principle Learner|Cinephile |Skeptic with a keyboard"
+          style="font-weight:800; font-size:1.05em;"
+        ></span>
+        <span class="nb-caret"></span>
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#about"   class="nb-btn">Who is this guy? ↓</a>
+        <a href="#socials" class="nb-btn black">Say Hi →</a>
+        <!-- <a href="../index.html" class="nb-btn white">← Old site</a> -->
+      </div>
+    </div>
+
+    <!-- Hackerman sticker -->
+    <img
+      class="hero-sticker "
+      src="attachments/myself-hackerman.png"
+      alt="a picture of myself"
+    >
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MARQUEE TICKER
+  ════════════════════════════════════════════════════════ -->
+  <div class="nb-marquee-wrap" aria-hidden="true">
+    <div class="nb-marquee-inner">
+      <span>Prajwal Praveen</span>
+      <span>CS Undergrad</span>
+      <span>@prawmathean</span>
+      <span>Your Friendly Neighbourhood IT guy</span>
+      <span style="color:#4880f0;">Arch btw</span>
+      <span>First Principle learner</span>
+      <span>Cinephile</span>
+      <span>Tech Support</span>
+      <!-- <span>Nihilist</span> -->
+      <span>Skeptic</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════════════════════ -->
+  <section class="nb-section" id="about">
+    <div class="nb-container">
+      <div class="section-label">§ whoami?</div>
+
+      <div class="about-grid">
+        <!-- ID card -->
+        <div class="about-id-card nb-reveal">
+          <div class="card-stripe" aria-hidden="true"></div>
+          <div class="card-header">
+            <span>ID</span>
+            <span>v2026.09</span>
+          </div>
+          <div class="name-big">Prajwal Praveen</div>
+          <div class="alias">aka @prawmathean, aka P</div>
+
+          <dl class="meta">
+            <dt>Status</dt>
+            <dd>Existing...</dd>
+
+            <!-- <dt>Age</dt>
+            <dd>20yo</dd> -->
+
+            <dt>Location</dt>
+            <dd>Kerala, India</dd>
+
+            <dt>Mode</dt>
+            <dd>Online</dd>
+            
+            <dt>Machine</dt>
+            <dd>
+              ThinkPad E16 Gen 2
+            </dd>
+
+            <dt>OS</dt>
+            <dd>
+              <span class="nb-tag blue">Arch</span> + KDE btw
+            </dd>
+
+          </dl>
+        </div>
+
+        <!-- Text -->
+<div class="about-text nb-reveal">
+  <p>
+    I go by the government name <strong>Prajwal Praveen</strong>. On the internet you'll find me as
+    <span class="nb-hl">@prawmathean</span> or sometimes just <mark class="nb-hl">P</mark>. <br>
+    Your friendly neighbourhood tech support
+  </p>
+
+  <p>
+    I spend most of my day messing with my computer, fixing my Arch PC, scratching my own itch - something to help myself make the day better <br>
+    or just because I wanted to see it working and if I could do that. <br>
+    I just love the fact that you can craft something from nothing to something. <br>
+    Literally <span class="nb-tag red">from 0 to 1.</span>
+    <br>
+  </p>
+
+  <p>
+    I've made a few low-level utility &amp; CLI tools, web scrappers, websites, and other random stuffs because <stong class="nb-tag green">I liked it.</stong>
+  </p>
+
+  <figure class="nb-img-figure mt-md">
+    <img
+      src="attachments/iwasalive.png"
+      class="nb-img-frame tilt-right nb-draggable"
+      id="drag-heisenberg"
+      width="200"
+      alt="Heisenberg — I was alive"
+      draggable="false"
+    >
+  </figure>
+</div>
+
+          <div class="skill-chips mt-lg">
+            <span class="nb-tag yellow">Python</span>
+            <span class="nb-tag blue">Web</span>
+            <span class="nb-tag green">Linux</span>
+            <span class="nb-tag">Cybersec</span>
+            <span class="nb-tag red">Vibe Coder</span>
+            <span class="nb-tag">First Principles</span>
+            <span class="nb-tag yellow">Automation</span>
+            <span class="nb-tag blue">Arch btw</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       WHAT I DO
+  ════════════════════════════════════════════════════════ -->
+  <section class="nb-section" id="do">
+    <div class="nb-container">
+      <div class="section-label">§ What I do</div>
+
+      <div class="nb-grid-3">
+        <div class="do-card nb-reveal"  ="01">
+          <h3> Build things</h3>
+          <p>
+            Tools, websites, scripts, CLIs, bots - whatever scratches the itch.
+            If I have to do something twice or if I got bored of it, I automate it. If I can't find a tool I want,
+            I build it.
+          </p>
+          <div class="skill-chips mt-md">
+            <span class="nb-tag yellow">Python</span>
+            <span class="nb-tag blue">Web</span>
+          </div>
+        </div>
+
+        <div class="do-card nb-reveal" data-num="02" style="background:var(--yellow);">
+          <h3>CyberSecurity</h3>
+          <p>
+            I often mess around, break and inspect things - Just to see how it works under the hood. <br>
+            I do CTFs, labs when I got bored. poke into systems if I find it intresting.
+          </p>
+          <div class="skill-chips mt-md">
+            <span class="nb-tag">Cybersec</span>
+            <span class="nb-tag blue">Recon</span>
+            <span class="nb-tag green">HTB</span>
+            <span class="nb-tag green">THM</span>
+            <span class="nb-tag red">PenTest</span>
+
+          </div>
+        </div>
+
+        <div class="do-card nb-reveal" data-num="03">
+          <h3> 🐇 Follow the white rabbit</h3>
+          <p>
+            I often crave for that fundamental and first principle level understanding of concepts.
+            I like to see what's going on under the hood. I end up spending hours <i>(maybe days)</i> researching about smth - Because I was curious 
+          </p>
+          <div class="skill-chips mt-md">
+            <span class="nb-tag green">STEM</span>
+            <span class="nb-tag white">Computers</span>
+            <span class="nb-tag yellow">ML</span>
+            <span class="nb-tag red">AI</span>
+          </div>
+        </div>
+
+        <div class="do-card nb-reveal" data-num="04" style="background-color: #333; color:yellow;">
+          <h3>Movies</h3>
+          <p>
+            "Photography is truth. And cinema is truth twenty-four times a second." <br> - Jean-Luc Godard          
+          </p>
+          <div class="skill-chips mt-md">
+            <!-- <span class="nb-tag blue">Letterboxd</span> -->
+          </div>
+        </div>
+
+        <div class="do-card nb-reveal" data-num="05" style="background:var(--black); color:var(--white);">
+          <h3><span class="emoji">🐧</span> Linux</h3>
+          <p>
+            I use Arch Btw. <br>
+            I guess Everything is self explanatory from that. 🙌🏻
+          </p>
+          <div class="skill-chips mt-md" style="color:black;">
+            <span class="nb-tag green">Linux</span>
+            <span class="nb-tag yellow">Bash</span>
+            <span class="nb-tag blue">Arch + KDE</span>
+          </div>
+        </div>
+
+        <!-- <div class="do-card nb-reveal" data-num="06">
+          <h3> Read </h3>
+          <p>
+            Books, papers, blog posts, wikis, man pages. Anything that goes deep.
+            Surface level knowledge is uncomfortable to me — I want to see the guts.
+          </p>
+          <div class="skill-chips mt-md">
+            <span class="nb-tag">First Principles</span>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NOT A 9-TO-5
+  ════════════════════════════════════════════════════════ -->
+  <section class="cubicle-section nb-section" id="no9to5" style="border-top: 4px solid var(--black);">
+    <div class="cubicle-bg" aria-hidden="true"></div>
+    <div class="nb-container cubicle-content nb-reveal">
+      <div class="section-label">§ My Message to the world</div>
+      <h2>
+        I am<br>
+        <span class="strike">a 9-to-5</span><br>
+        person.
+      </h2>
+      <p>
+        The cubicle life? Not for me. I build things because I'm genuinely obsessed -
+        not because someone told me to. There's a difference.
+        The runner runs because they love it. I code because I love it.
+      </p>
+      <div class="mt-lg">
+        <span class="nb-tag red">Intrinsically motivated</span>
+        &nbsp;
+        <span class="nb-tag yellow">Self-directed</span>
+        &nbsp;
+        <span class="nb-tag">Perpetually curious</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MANIFESTO
+  ════════════════════════════════════════════════════════ -->
+  <section class="manifesto" id="manifesto">
+    <div class="nb-container">
+      <div class="section-label" style="color:var(--white); opacity:0.3; border-bottom:none;">§ Manifesto</div>
+      <div class="manifesto-inner nb-reveal">
+        <div class="manifesto-bar" aria-hidden="true"></div>
+        <div>
+          <blockquote>
+            "Just like a runner gets a kick out of running,
+            I get a kick out of thinking, building, tinkering,
+            and <span style="color:var(--yellow);">challenging myself.</span>"
+          </blockquote>
+          <cite>— Prajwal</cite>
+
+          <hr class="nb-divider" style="border-color:#333; margin-top:2rem;">
+
+          <p style="max-width:50ch; opacity:0.75; font-size:0.95rem;">
+            I like learning things in <strong style="color:var(--green);">first principles</strong>.
+            Abstractions make me uncomfortable. I'd rather face the Aporia, push through it to
+            understand what's under the hood, and see where the rabbit hole takes me.
+            I feel alive when my code comes to life and does things.
+            I'm always craving that <strong style="color:var(--yellow);">"AHA"</strong> moment.
+          </p>
+
+          <p style="max-width:50ch; opacity:0.75; font-size:0.95rem; margin-top:1rem;">
+            There are things in this world I could spend an eternity learning . and there would
+            still be stuff left. That doesn't scare me. It excites me.
+            <strong style="color:var(--white);">Constantly learning, and forever will be.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BLISS INTERLUDE (Windows XP — between manifesto & socials) - Hidden 
+  ════════════════════════════════════════════════════════ -->
+  <div class="bliss-interlude" style="display:none;" id="bliss">
+    <img
+      src="attachments/Bliss_(Windows_XP).png"
+      alt="Windows XP Bliss wallpaper"
+      id="bliss-img"
+    >
+    <div class="bliss-interlude-content" style="display:none;">
+      <span class="bliss-interlude-stamp">Windows XP · Bliss · 2001</span>
+      <p class="bliss-interlude-text">
+        Before the <em>rabbit holes</em>,<br>
+        there was just this hill.
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SOCIALS
+  ════════════════════════════════════════════════════════ -->
+  <section class="nb-section" id="socials">
+    <div class="nb-container">
+      <div class="section-label">§ Find me</div>
+
+      <h2 class="mb-lg nb-reveal">If you you wanna get in touch, or just say <br><span class="nb-hl">Hi Lol</span>, here are my socials. <span class="nb-hl blue"> Ping me</span></h2>
+
+      <!-- two-column: saul left | links right -->
+      <div class="socials-body nb-reveal">
+
+        <!-- LEFT: Saul -->
+        <div class="saul-sticker-wrap nb-draggable" id="drag-saul-wrap">
+          <img
+            class="saul-sticker nb-draggable"
+            id="drag-saul"
+            src="attachments/saul_phone_court.png"
+            alt="Saul Goodman holding out a flip phone"
+            draggable="false"
+          >
+          <span class="saul-caption">better call...</span>
+        </div>
+
+        <!-- RIGHT: social links -->
+        <div class="socials-list">
+          <a href="https://github.com/prajwal-56" target="_blank" rel="noopener" class="nb-social-item">
+            <span class="icon">⌥</span>
+            <div>
+              <div class="fw-bold">github/prajwal-56</div>
+              <div class="text-sm text-muted text-mono">main()</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/prawmathean" target="_blank" rel="noopener" class="nb-social-item">
+            <span class="icon">⌥</span>
+            <div>
+              <div class="fw-bold">github/prawmathean</div>
+              <div class="text-sm text-muted text-mono">A stash account</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/sys56Daemon" target="_blank" rel="noopener" class="nb-social-item">
+            <span class="icon">⌥</span>
+            <div>
+              <div class="fw-bold">github/sys56Daemon</div>
+              <div class="text-sm text-muted text-mono">Another stash account</div>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/prajwal-praveen/" target="_blank" rel="noopener" class="nb-social-item">
+            <span class="icon">▣</span>
+            <div>
+              <div class="fw-bold">linkedin/prajwal-praveen</div>
+              <div class="text-sm text-muted text-mono">LinkedIn</div>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/prajwalp.__" target="_blank" rel="noopener" class="nb-social-item">
+            <span class="icon">◎</span>
+            <div>
+              <div class="fw-bold">instagram/prajwalp.__</div>
+              <div class="text-sm text-muted text-mono">barely opens</div>
+            </div>
+          </a>
+
+          <a href="https://x.com/prajwal_p1" target="_blank" rel="noopener" class="nb-social-item">
+            <span class="icon">✕</span>
+            <div>
+              <div class="fw-bold">x/@prajwal_p1</div>
+              <div class="text-sm text-muted text-mono">Least active</div>
+            </div>
+          </a>
+
+          <a href="https://letterboxd.com/prawmathean/" target="_blank" rel="noopener" class="nb-social-item">
+            <span class="icon">◈</span>
+            <div>
+              <div class="fw-bold">letterboxd/prawmathean</div>
+              <div class="text-sm text-muted text-mono"> mehh... </div>
+            </div>
+          </a>
+
+          <a href="https://www.reddit.com/user/prawmathean/" target="_blank" rel="noopener" class="nb-social-item">
+            <span class="icon">◉</span>
+            <div>
+              <div class="fw-bold">reddit/u/prawmathean</div>
+              <div class="text-sm text-muted text-mono">Since it's "The heart of the internet"</div>
+            </div>
+          </a>
+
+          <a href="mailto:prawmathean@proton.me" class="nb-social-item" style="grid-column: 1 / -1;">
+            <span class="icon">✉</span>
+            <div>
+              <div class="fw-bold">prawmathean@proton.me</div>
+              <div class="text-sm text-muted text-mono">Email me</div>
+            </div>
+          </a>
+        </div><!-- /.socials-list -->
+
+      </div><!-- /.socials-body -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       EASTER EGG
+  ════════════════════════════════════════════════════════ -->
+  <section class="egg-section nb-section" id="egg">
+    <div class="nb-container">
+      <div class="section-label">§ Random facts (click to reveal)</div>
+
+      <h2 class="mb-lg nb-reveal">random stuffs<br> that nobody asked for.</h2>
+
+      <div class="nb-grid-2 nb-reveal">
+        <div class="egg-panel" role="button" tabindex="0" aria-expanded="false">
+          <div class="fw-bold">
+            <span class="egg-toggle-icon">+</span>
+            what am I actually doing irl ?
+          </div>
+          <div class="egg-answer">
+            Rn, I'm a CSE undergrad. But more than that, I would like to identify myself as a independent or <span class="nb-hl blue" style="font-weight: bold;">hobbyist programmer</span>  
+          </div>
+        </div>
+
+        <div class="egg-panel" role="button" tabindex="0" aria-expanded="false">
+          <div class="fw-bold">
+            <span class="egg-toggle-icon">+</span>
+            Why Linux?
+          </div>
+          <div class="egg-answer">
+            1. It's FOSS <br>
+            2. Using linux feels like - you entirely own the machine and you start to feel like you have the entire control over it. Makes you feel like a god.<br>
+            3. Windows kinda sucks nowadays <br>`
+          </div>
+        </div>
+
+        <div class="egg-panel" role="button" tabindex="0" aria-expanded="false">
+          <div class="fw-bold">
+            <span class="egg-toggle-icon">+</span>
+            Hobbies?
+          </div>
+          <div class="egg-answer">
+            Just messing around my computer, watching movies and occassionally reading
+          </div>
+        </div>
+
+        <div class="egg-panel" role="button" tabindex="0" aria-expanded="false">
+          <div class="fw-bold">
+            <span class="egg-toggle-icon">+</span>
+            The purpose of life?
+          </div>
+          <div class="egg-answer">
+            SPOILER : There's none.<br>
+            imo, it's either we just spawned here and made ourself at home and we've been stuck here for a while. 
+            Or we're inside a computer simulation of a higher dimension entity
+          </div>
+        </div>
+
+        <div class="egg-panel" role="button" tabindex="0" aria-expanded="false" style="display: none;">
+          <div class="fw-bold">
+            <span class="egg-toggle-icon">+</span>
+            Hidden easter egg?
+          </div>
+          <div class="egg-answer">
+            <code>↑ ↑ ↓ ↓ ← → ← → B A
+Try it. On this page. Right now.</code>
+          </div>
+        </div>
+
+        <div class="egg-panel" role="button" tabindex="0" aria-expanded="false">
+          <div class="fw-bold">
+            <span class="egg-toggle-icon">+</span>
+            Why "prawmathean"?
+          </div>
+          <div class="egg-answer">
+            Prajwal + Prometheus (the bringer of fire).
+            I like the idea of someone who steals fire from the gods
+            just to give it away.Also I thought it sounded cool.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER with crowd image
+  ════════════════════════════════════════════════════════ -->
+  <footer class="crowd-footer">
+    <div class="crowd-img-wrap">
+      <img src="attachments/crowd.png" alt="A crowd of people — just not me">
+      <div style="
+        position:absolute; inset:0; display:flex; align-items:center;
+        justify-content:center; flex-direction:column; gap:0.5rem;
+        padding:2rem; text-align:center;
+      ">
+        <div class="nb-tag yellow" style="font-size:0.7rem; letter-spacing:0.15em;">
+          At then end of the day
+        </div>
+        <p style="font-weight:800; font-size:clamp(1.3rem,4vw,2.5rem); line-height:1.1; max-width:32ch;">
+          I'm just another <span class="nb-hl blue"> tech enthusiast.</span>
+        </p>
+
+      </div>
+    </div>
+
+    <div class="nb-container crowd-footer-inner">
+      <div class="signature">
+        <div>Prajwal Praveen</div>
+        <div class="text-muted" style="font-size:0.7rem;">@prawmathean &middot; 2026</div>
+      </div>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <a href="../index.html"    class="nb-btn white text-sm" style="font-size:0.78rem; padding:0.4em 0.9em;">Main site</a>
+        <a href="#hero"            class="nb-btn black text-sm" style="font-size:0.78rem; padding:0.4em 0.9em;">↑ Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Micro JS library -->
+  <script src="nb.js"></script>
+</body>
+</html>
