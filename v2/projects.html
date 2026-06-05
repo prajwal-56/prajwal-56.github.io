@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donut.html">Donut</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h1>My Projects</h1>
+            <div class="project">
+                <h2>Project 1</h2>
+                <p>A brief description of your project. What was the goal? What technologies did you use? What was the outcome?</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project">
+                <h2>Project 2</h2>
+                <p>A brief description of your project. What was the goal? What technologies did you use? What was the outcome?</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project">
+                <h2>Project 3</h2>
+                <p>A brief description of your project. What was the goal? What technologies did you use? What was the outcome?</p>
+                <a href="#">View Project</a>
+            </div>
+        </main>
+    </div>
+    <div class="ascii-container">
+        <pre id="ascii-animation"></pre>
+    </div>
+    <script>
+        const frames = [
+            `
+  __
+o-''|\_____/)
+ \_/|_)     )
+    \__    /
+    (_/ (_/
+            `,
+            `
+  __
+o-''|\_____/)
+ \_/|_)     )
+    \__    /
+    / (_/ (_
+            `,
+            `
+  __
+o-''|\_____/)
+ \_/|_)     )
+    \__    /
+    (_/ (_/
+            `,
+            `
+  __
+o-''|\_____/)
+ \_/|_)     )
+    \__    /
+     \_) (_/
+            `
+        ];
+
+        let frameIndex = 0;
+        const asciiArtElement = document.getElementById('ascii-animation');
+
+        function animate() {
+            if (asciiArtElement) {
+                asciiArtElement.textContent = frames[frameIndex];
+                frameIndex = (frameIndex + 1) % frames.length;
+            }
+        }
+
+        setInterval(animate, 200);
+    </script>
+</body>
+</html>
