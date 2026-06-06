@@ -1,8 +1,3 @@
-/* ========================================
-   TextScramble — glitch text effect
-   no dependencies, pure vanilla JS
-   ======================================== */
-
 class TextScramble {
   constructor(el) {
     this.el = el;
