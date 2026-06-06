@@ -109,15 +109,43 @@ nav a.active {
 .theme-toggle button {
   background: none;
   border: none;
-  color: var(--text-muted);
-  font-size: 0.85rem;
   cursor: pointer;
   padding: 0;
-  transition: color 0.2s ease;
-  line-height: 1;
+  overflow: hidden;
+  height: 14px;
+  width: 14px;
+  display: flex;
+  align-items: flex-start;
 }
 
-.theme-toggle button:hover {
+.toggle-track {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transform: translateY(0);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] .toggle-track {
+  transform: translateY(-20px);
+}
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+  width: 14px;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.toggle-icon svg {
+  display: block;
+}
+
+.theme-toggle button:hover .toggle-icon {
   color: var(--accent);
 }
 
