@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog post by Prajwal.">
+  <title>blog — prajwal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='monospace' fill='%237a8f65'%3E%3E%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <nav class="fade-in">
+      <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="blogs.html" class="active">blog</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li><a href="socials.html">socials</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="back-nav fade-in" style="--delay: 0.2s">
+        <a href="blogs.html" class="back-link">&larr; blogs</a>
+      </div>
+
+      <h1 id="post-title" data-scramble>...</h1>
+      <p id="post-meta" class="page-desc"></p>
+
+      <div id="post-content" class="blog-content fade-in" style="--delay: 0.6s"></div>
+    </main>
+
+    <footer class="fade-in" style="--delay: 0.8s"></footer>
+
+  </div>
+
+  <script src="footer.js"></script>
+  <script src="animate.js"></script>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const postSlug = urlParams.get('post');
+
+      if (!postSlug) {
+        window.location.href = 'blogs.html';
+        return;
+      }
+
+      fetch('blogs/index.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load blog index');
+          return response.json();
+        })
+        .then(posts => {
+          const postMeta = posts.find(p => p.slug === postSlug);
+          if (!postMeta) {
+            document.getElementById('post-title').textContent = 'post not found';
+            document.getElementById('post-content').innerHTML = '<p>The requested blog post could not be found.</p>';
+            return;
+          }
+
+          document.title = `${postMeta.title} — prajwal`;
+          
+          const titleEl = document.getElementById('post-title');
+          titleEl.textContent = '';
+          const fx = new TextScramble(titleEl);
+          fx.setText(postMeta.title);
+
+          const metaEl = document.getElementById('post-meta');
+          metaEl.setAttribute('data-typewriter', postMeta.date);
+          setTimeout(() => {
+            typewrite(metaEl, 28);
+          }, 400);
+
+          return fetch(`blogs/${postSlug}.md`);
+        })
+        .then(response => {
+          if (!response) return;
+          if (!response.ok) throw new Error('Failed to load blog content');
+          return response.text();
+        })
+        .then(markdownText => {
+          if (!markdownText) return;
+
+          let processedText = markdownText.replace(/!\[\[(.*?)\]\]/g, '![$1](blogs/attachment/$1)');
+          processedText = processedText.replace(/\[\[(.*?)\|(.*?)\]\]/g, '[$2](blog-post.html?post=$1)');
+          processedText = processedText.replace(/\[\[(.*?)\]\]/g, '[$1](blog-post.html?post=$1)');
+
+          const htmlContent = marked.parse(processedText);
+          document.getElementById('post-content').innerHTML = htmlContent;
+        })
+        .catch(err => {
+          console.error(err);
+          document.getElementById('post-title').textContent = 'error';
+          document.getElementById('post-content').innerHTML = `<p>Failed to load the post: ${err.message}</p>`;
+        });
+    });
+  </script>
+</body>
+</html>
