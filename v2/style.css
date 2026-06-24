@@ -26,10 +26,10 @@
   --radius:        7px;
   --transition:    0.22s ease;
   /* Glass */
-  --glass-bg:      rgba(3, 7, 3, 0.76);
-  --glass-blur:    blur(16px) saturate(1.25);
-  --glass-border:  rgba(0, 255, 136, 0.08);
-  --glass-shadow:  0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(0,255,136,0.04);
+  --glass-bg:      linear-gradient(135deg, rgba(8, 28, 12, 0.48) 0%, rgba(3, 8, 3, 0.32) 100%);
+  --glass-blur:    blur(12px) saturate(1.45);
+  --glass-border:  rgba(0, 255, 136, 0.15);
+  --glass-shadow:  0 16px 48px rgba(0, 0, 0, 0.75), inset 0 1px 2px rgba(0, 255, 136, 0.25);
 }
 
 /* ============================================
@@ -449,7 +449,7 @@ nav ul li a.active {
    ABOUT PAGE
    ============================================ */
 .about-bio {
-  color: var(--text-dim);
+  color: var(--text);
   font-size: 1rem;
   line-height: 1.85;
 }
@@ -508,13 +508,16 @@ nav ul li a.active {
 .projects-grid { display: grid; gap: 1.1rem; }
 
 .project-card {
-  background: rgba(0, 255, 136, 0.025);
-  border: 1px solid var(--border);
+  background: rgba(0, 255, 136, 0.035);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 255, 136, 0.1);
   border-radius: var(--radius);
   padding: 1.65rem;
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .project-card::before {
@@ -529,8 +532,9 @@ nav ul li a.active {
 
 .project-card:hover {
   border-color: var(--border-hover);
-  background: rgba(0, 255, 136, 0.05);
+  background: rgba(0, 255, 136, 0.07);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(0, 255, 136, 0.12);
 }
 
 .project-card:hover::before { opacity: 1; }
@@ -565,7 +569,7 @@ nav ul li a.active {
 }
 
 .project-desc {
-  color: var(--text-dim);
+  color: var(--text);
   font-size: 0.92rem;
   line-height: 1.72;
   margin-bottom: 1.2rem;
@@ -639,7 +643,7 @@ nav ul li a.active {
    CONTACT PAGE
    ============================================ */
 .contact-intro {
-  color: var(--text-dim);
+  color: var(--text);
   font-size: 1rem;
   line-height: 1.75;
   margin-bottom: 2rem;
@@ -653,17 +657,21 @@ nav ul li a.active {
   align-items: center;
   gap: 1.1rem;
   padding: 1.1rem 1.35rem;
-  background: rgba(0,255,136,0.025);
-  border: 1px solid var(--border);
+  background: rgba(0, 255, 136, 0.035);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 255, 136, 0.10);
   border-radius: var(--radius);
   transition: all var(--transition);
   text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .contact-link:hover {
   border-color: var(--border-hover);
-  background: var(--bg-card-hover);
+  background: rgba(0, 255, 136, 0.07);
   transform: translateX(4px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(0, 255, 136, 0.12);
 }
 
 .contact-link-icon {
