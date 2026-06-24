@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prajwal's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prajwal — Developer</title>
+  <meta name="description" content="Prajwal — a self-taught programmer and CS undergrad who builds things because it's genuinely cool to do.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="matrix-canvas"></canvas>
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="donut.html">Donut</a></li>
-            </ul>
-        </nav>
-        <main>
-            <div class="glitch-container">
-                <h1 class="glitch" data-text="Hi, I Am Prajwal">Hi, I Am Prajwal</h1>
-            </div>
-        </main>
+  <!-- Nav injected by nav.js -->
+  <script src="nav.js"></script>
+
+  <canvas id="matrix-canvas"></canvas>
+
+  <div class="home-hero">
+    <div class="hero-glass glass-panel">
+      <p class="home-prompt">
+        <span>~/</span> whoami
+      </p>
+
+      <div class="glitch-container">
+        <h1 class="glitch" data-text="Hi, I'm Prajwal">Hi, I'm Prajwal</h1>
+      </div>
+
+      <p class="home-sub">
+        A <strong>self-taught programmer</strong> and CS undergrad who builds things
+        primarily because it's <em>genuinely cool</em> to do.
+        I like systems, low-level stuff, and going down rabbit holes I didn't plan on.
+      </p>
+
+      <div class="home-cta">
+        <a href="projects.html" class="btn btn-primary">view projects</a>
+        <a href="https://github.com/prajwal-56" target="_blank" rel="noopener" class="btn btn-outline">github ↗</a>
+      </div>
     </div>
-    <div class="ascii-container">
-        <pre id="ascii-animation"></pre>
+  </div>
+
+  <div class="ascii-container">
+    <pre id="ascii-animation"></pre>
+  </div>
+
+  <script src="matrix.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Hidden terminal — ctrl+` to open -->
+  <div id="console" class="hidden">
+    <div id="console-header">
+      <span id="console-title">prajwal@127.0.0.1:~/ $</span>
+      <span id="console-hint">ctrl+` to close &nbsp;·&nbsp; help for commands</span>
     </div>
-    <script src="matrix.js"></script>
-    <script src="script.js"></script>
-    <div id="console" class="hidden">
-        <div id="console-output"></div>
-        <div id="console-input-container">
-            <span id="console-prompt">&gt;</span>
-            <input type="text" id="console-input">
-        </div>
+    <div id="console-output"></div>
+    <div id="console-input-container">
+      <span id="console-prompt">❯</span>
+      <input type="text" id="console-input" autocomplete="off" spellcheck="false" placeholder="type a command...">
     </div>
-    <script src="console.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/cowsay-browser@1.1.8/index.min.js"></script>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/cowsay-browser@1.1.8/index.min.js"></script>
+  <script src="console.js"></script>
 </body>
 </html>

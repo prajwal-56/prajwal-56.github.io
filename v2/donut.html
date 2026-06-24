@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D ASCII Donut</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donut 🍩 — Prajwal</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Donut page overrides — fullscreen, no glass, black bg */
+    body { background: #000; overflow: hidden; }
+    #donut-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+    #donut { font-size: 12px; line-height: 12px; white-space: pre; }
+  </style>
 </head>
-<body class="donut-page">
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donut.html">Donut</a></li>
-        </ul>
-    </nav>
+<body>
+  <script src="nav.js"></script>
+  <div id="donut-wrap">
     <pre id="donut"></pre>
-    <script src="donut.js"></script>
+  </div>
+  <script src="donut.js"></script>
 </body>
 </html>

@@ -1,87 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Prajwal</title>
+  <meta name="description" content="Projects by Prajwal — container runtimes, network tools, OSINT scripts, and hardware hacks.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="donut.html">Donut</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h1>My Projects</h1>
-            <div class="project">
-                <h2>Project 1</h2>
-                <p>A brief description of your project. What was the goal? What technologies did you use? What was the outcome?</p>
-                <a href="#">View Project</a>
-            </div>
-            <div class="project">
-                <h2>Project 2</h2>
-                <p>A brief description of your project. What was the goal? What technologies did you use? What was the outcome?</p>
-                <a href="#">View Project</a>
-            </div>
-            <div class="project">
-                <h2>Project 3</h2>
-                <p>A brief description of your project. What was the goal? What technologies did you use? What was the outcome?</p>
-                <a href="#">View Project</a>
-            </div>
-        </main>
+  <script src="nav.js"></script>
+
+  <canvas id="matrix-canvas"></canvas>
+
+  <main class="page-wrapper glass-panel">
+    <div class="section-header">
+      <p class="section-label">// ls ~/projects</p>
+      <h1 class="section-title">Things I Built<span class="cursor"></span></h1>
     </div>
-    <div class="ascii-container">
-        <pre id="ascii-animation"></pre>
+
+    <div class="projects-grid">
+
+      <article class="project-card featured">
+        <div class="project-header">
+          <h2 class="project-name">carapace</h2>
+          <span class="project-lang">C</span>
+        </div>
+        <p class="project-desc">
+          A container runtime written in C — basically a mini Docker. It isolates a running process
+          using Linux namespaces and cgroups, giving it its own filesystem, PID space, and network,
+          just like the real thing. Built to actually understand what Docker does under the hood.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">linux namespaces</span>
+            <span class="project-tag">cgroups</span>
+            <span class="project-tag">systems</span>
+          </div>
+          <a href="https://github.com/prajwal-56/carapace" target="_blank" rel="noopener" class="project-link">
+            github ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card featured">
+        <div class="project-header">
+          <h2 class="project-name">yeetify</h2>
+          <span class="project-lang">Python</span>
+        </div>
+        <p class="project-desc">
+          A local-network file sharing webapp built with FastAPI. Host it on any machine, and anyone
+          on the same network can hit the URL to upload or download files stored on that device.
+          No cloud, no accounts — just run it and share.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">fastapi</span>
+            <span class="project-tag">local network</span>
+            <span class="project-tag">web</span>
+          </div>
+          <a href="https://github.com/prajwal-56/yeetify" target="_blank" rel="noopener" class="project-link">
+            github ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-name">redDoz</h2>
+          <span class="project-lang">Web</span>
+        </div>
+        <p class="project-desc">
+          Takes a Reddit username and redirects you to a Google dork search query, revealing posts
+          from users who've hidden their profile with Reddit's newer privacy settings.
+          Simple idea, surprisingly effective.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">osint</span>
+            <span class="project-tag">google dorks</span>
+            <span class="project-tag">reddit</span>
+          </div>
+          <a href="https://github.com/prajwal-56/redDoz" target="_blank" rel="noopener" class="project-link">
+            github ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-name">morsify</h2>
+          <span class="project-lang">C</span>
+        </div>
+        <p class="project-desc">
+          Turns your ThinkPad's keyboard LED into a Morse code communicator.
+          Run <code style="background:rgba(0,255,136,0.08);padding:0 5px;border-radius:3px;font-size:0.82em;font-family:var(--font-mono)">sudo ./morsify</code>,
+          type anything in the shell-like prompt, and it blinks out your message in Morse.
+          Because why not.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">thinkpad</span>
+            <span class="project-tag">morse code</span>
+            <span class="project-tag">hardware</span>
+          </div>
+          <a href="https://github.com/prajwal-56/morsify" target="_blank" rel="noopener" class="project-link">
+            github ↗
+          </a>
+        </div>
+      </article>
+
     </div>
-    <script>
-        const frames = [
-            `
-  __
-o-''|\_____/)
- \_/|_)     )
-    \__    /
-    (_/ (_/
-            `,
-            `
-  __
-o-''|\_____/)
- \_/|_)     )
-    \__    /
-    / (_/ (_
-            `,
-            `
-  __
-o-''|\_____/)
- \_/|_)     )
-    \__    /
-    (_/ (_/
-            `,
-            `
-  __
-o-''|\_____/)
- \_/|_)     )
-    \__    /
-     \_) (_/
-            `
-        ];
 
-        let frameIndex = 0;
-        const asciiArtElement = document.getElementById('ascii-animation');
+    <div class="more-projects">
+      more stuff lives on&nbsp;
+      <a href="https://github.com/prajwal-56" target="_blank" rel="noopener">github.com/prajwal-56 ↗</a>
+    </div>
+  </main>
 
-        function animate() {
-            if (asciiArtElement) {
-                asciiArtElement.textContent = frames[frameIndex];
-                frameIndex = (frameIndex + 1) % frames.length;
-            }
-        }
+  <div class="ascii-container">
+    <pre id="ascii-animation"></pre>
+  </div>
 
-        setInterval(animate, 200);
-    </script>
+  <script src="matrix.js"></script>
+  <script>
+    const frames = [
+      `\n  __\no-''|\\_____/)\n \\_/|_)     )\n    \\__    /\n    (_/ (_/\n      `,
+      `\n  __\no-''|\\_____/)\n \\_/|_)     )\n    \\__    /\n    / (_/ (_\n      `,
+      `\n  __\no-''|\\_____/)\n \\_/|_)     )\n    \\__    /\n    (_/ (_/\n      `,
+      `\n  __\no-''|\\_____/)\n \\_/|_)     )\n    \\__    /\n     \\_) (_/\n      `
+    ];
+    let fi = 0;
+    const el = document.getElementById('ascii-animation');
+    function animate() { if (el) { el.textContent = frames[fi]; fi = (fi + 1) % frames.length; } }
+    setInterval(animate, 220);
+  </script>
 </body>
 </html>

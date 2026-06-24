@@ -32,7 +32,7 @@ function handleCommand(command) {
 
     switch (cmd) {
         case 'help':
-            appendOutput('Available commands: help, clear, matrix, credits, cowsay');
+            appendOutput('available commands: <span style="color:var(--green)">help</span>, <span style="color:var(--green)">clear</span>, <span style="color:var(--green)">matrix [on|off|speed &lt;n&gt;]</span>, <span style="color:var(--green)">credits</span>, <span style="color:var(--green)">cowsay &lt;msg&gt;</span>');
             break;
         case 'clear':
             consoleOutput.innerHTML = '';
@@ -92,10 +92,11 @@ function handleMatrixCommand(args) {
 
 function showCredits() {
     const credits = [
-        'Website created by Gemini',
-        'ASCII Art Animations from the web',
-        '3D Donut code by a clever human',
-        'Special thanks to the user for the inspiration'
+        '> site by <span style="color:var(--green)">prajwal</span> — prajwal-56.github.io',
+        '> ascii animations — hand-picked from the web',
+        '> 3d donut — the classic a1k0n spinning donut',
+        '> matrix rain — canvas + js, rolled from scratch',
+        '> built because it\'s genuinely cool to do'
     ];
 
     let i = 0;
@@ -103,7 +104,7 @@ function showCredits() {
         if (i < credits.length) {
             appendOutput(credits[i]);
             i++;
-            setTimeout(showLine, 500);
+            setTimeout(showLine, 400);
         }
     }
     showLine();
