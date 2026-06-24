@@ -1,7 +1,7 @@
 (function () {
 
   var stored = localStorage.getItem('theme');
-  var theme = stored || 'dark';
+  var theme = stored || 'light';
   document.documentElement.setAttribute('data-theme', theme);
 
   document.addEventListener('DOMContentLoaded', function () {
