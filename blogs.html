@@ -27,16 +27,50 @@
 
       <p class="page-desc" data-typewriter="I have opinions. I just haven't written them down yet." data-typewriter-delay="500"></p>
 
-      <div class="wip-block fade-in" style="--delay: 2.2s">
-        <p>this page is a work in progress — like most of my side projects. check back later, or don't. I'll probably forget to update this anyway.</p>
+      <!-- blog list container -->
+      <div id="blog-list" class="fade-in" style="--delay: 1.2s">
+        <p style="color: var(--text-muted); font-size: 0.85rem; font-weight: 300;">loading posts...</p>
       </div>
     </main>
 
-    <footer class="fade-in" style="--delay: 2.5s"></footer>
+    <footer class="fade-in" style="--delay: 1.5s"></footer>
 
   </div>
 
   <script src="footer.js"></script>
   <script src="animate.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const blogListContainer = document.getElementById('blog-list');
+
+      fetch('blogs/index.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load blog list');
+          return response.json();
+        })
+        .then(posts => {
+          if (!posts || posts.length === 0) {
+            blogListContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; font-weight: 300;">no posts yet. check back later, or don\'t. I\'ll probably forget to update this anyway.</p>';
+            return;
+          }
+
+          let html = '';
+          posts.forEach(post => {
+            html += `
+              <div class="project-item" style="margin-bottom: 2rem;">
+                <a href="blog-post.html?post=${post.slug}" class="project-name">${post.title}</a>
+                <span class="project-lang">${post.date}</span>
+                <p class="project-desc">${post.description}</p>
+              </div>
+            `;
+          });
+          blogListContainer.innerHTML = html;
+        })
+        .catch(err => {
+          console.error(err);
+          blogListContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; font-weight: 300;">failed to load posts. check back later, or don\'t.</p>';
+        });
+    });
+  </script>
 </body>
 </html>
