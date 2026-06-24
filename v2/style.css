@@ -1,7 +1,7 @@
 /* ============================================
    FONTS
    ============================================ */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 /* ============================================
    CSS VARIABLES
@@ -21,7 +21,7 @@
   --text-dim:      #618a70;
   --text-muted:    #2d4f37;
   --font-mono:     'JetBrains Mono', 'Courier New', monospace;
-  --font-sans:     'Inter', system-ui, sans-serif;
+  --font-sans:     'Plus Jakarta Sans', system-ui, sans-serif;
   --nav-h:         58px;
   --radius:        7px;
   --transition:    0.22s ease;
@@ -285,7 +285,7 @@ nav ul li a.active {
 /* Glass wrapper for home text content */
 .hero-glass {
   padding: 2.5rem 3rem;
-  max-width: 620px;
+  max-width: 820px;
   width: 100%;
 }
 
@@ -341,7 +341,7 @@ nav ul li a.active {
   color: var(--text-dim);
   font-size: 1.02rem;
   line-height: 1.8;
-  max-width: 480px;
+  max-width: 680px;
   margin-bottom: 2.25rem;
 }
 

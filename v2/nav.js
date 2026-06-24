@@ -19,7 +19,6 @@
     { href: 'about.html',    label: 'about'      },
     { href: 'projects.html', label: 'projects'   },
     { href: 'contact.html',  label: 'contact'    },
-    { href: 'donut.html',    label: 'donut 🍩'   },
   ];
 
   const filename  = window.location.pathname.split('/').pop() || '';

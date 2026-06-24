@@ -32,7 +32,7 @@ function handleCommand(command) {
 
     switch (cmd) {
         case 'help':
-            appendOutput('available commands: <span style="color:var(--green)">help</span>, <span style="color:var(--green)">clear</span>, <span style="color:var(--green)">matrix [on|off|speed &lt;n&gt;]</span>, <span style="color:var(--green)">credits</span>, <span style="color:var(--green)">cowsay &lt;msg&gt;</span>');
+            appendOutput('available commands: <span style="color:var(--green)">help</span>, <span style="color:var(--green)">clear</span>, <span style="color:var(--green)">matrix [on|off|speed &lt;n&gt;]</span>, <span style="color:var(--green)">credits</span>, <span style="color:var(--green)">cowsay &lt;msg&gt;</span>, <span style="color:var(--green)">donut</span>');
             break;
         case 'clear':
             consoleOutput.innerHTML = '';
@@ -45,6 +45,12 @@ function handleCommand(command) {
             break;
         case 'cowsay':
             handleCowsayCommand(args);
+            break;
+        case 'donut':
+            appendOutput('Launching spinning 3D ASCII donut...');
+            setTimeout(() => {
+                window.location.href = 'donut.html';
+            }, 600);
             break;
         default:
             appendOutput(`Command not found: ${cmd}`);
