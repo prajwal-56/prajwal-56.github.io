@@ -14,7 +14,10 @@
 
   <main class="page-wrapper glass-panel">
     <div class="section-header">
-      <p class="section-label">// whoami</p>
+      <div class="terminal-cmd">
+        <span class="tc-user">prajwal</span><span class="tc-at">@127.0.0.1</span><span class="tc-at">:</span><span class="tc-path">~/about</span><span class="tc-dollar"> $</span>
+        <span class="tc-command">whoami</span><span class="tc-cursor"></span>
+      </div>
       <h1 class="section-title">About Me<span class="cursor"></span></h1>
     </div>
 
@@ -36,7 +39,10 @@
 
     <div class="divider"></div>
 
-    <p class="section-label">// things i work with</p>
+    <div class="terminal-cmd">
+      <span class="tc-user">prajwal</span><span class="tc-at">@127.0.0.1</span><span class="tc-at">:</span><span class="tc-path">~/about</span><span class="tc-dollar"> $</span>
+      <span class="tc-command">cat skills.txt</span><span class="tc-cursor"></span>
+    </div>
     <div class="skills-grid">
       <span class="skill-tag"><span class="dot"></span>C</span>
       <span class="skill-tag"><span class="dot"></span>Python</span>
@@ -61,6 +67,7 @@
   </div>
 
   <script src="matrix.js"></script>
+  <script src="typewriter.js"></script>
   <script>
     const frames = [
       `\n  |\\___/|\n  | o o |\n  (  "  )\n      `,

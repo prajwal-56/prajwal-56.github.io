@@ -404,6 +404,7 @@ nav ul li a.active {
    ============================================ */
 .section-header { margin-bottom: 2.25rem; }
 
+/* Legacy — keep for any remaining uses */
 .section-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -411,6 +412,46 @@ nav ul li a.active {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
+}
+
+/* ── Terminal command line ── */
+.terminal-cmd {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.02em;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 0;
+}
+
+.tc-user   { color: var(--green); }
+.tc-at     { color: var(--text-muted); }
+.tc-path   { color: var(--cyan); }
+.tc-dollar { color: var(--text-muted); padding-right: 0.55em; }
+.tc-command {
+  color: var(--text);
+  min-width: 1px; /* ensures element exists even while empty during typing */
+}
+
+/* blinking block cursor after the typed command */
+.tc-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.1em;
+  background: var(--green);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  animation: blink 1s step-end infinite;
+  flex-shrink: 0;
+}
+
+.tc-cursor.done {
+  animation: none;
+  opacity: 0;
 }
 
 .section-title {
@@ -434,6 +475,34 @@ nav ul li a.active {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
+}
+
+/* ============================================
+   TEXT SELECTION
+   ============================================ */
+::selection {
+  background: rgba(0, 255, 136, 0.28);
+  color: #fff;
+}
+
+::-moz-selection {
+  background: rgba(0, 255, 136, 0.28);
+  color: #fff;
+}
+
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+#scroll-progress {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(to right, var(--green), var(--cyan));
+  z-index: 901;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.55);
 }
 
 /* ============================================

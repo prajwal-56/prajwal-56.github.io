@@ -150,4 +150,16 @@
     document.title = `${meta.label} — Prajwal`;
   }
 
+  /* ── Scroll progress bar (inner pages only) ── */
+  if (!isHome) {
+    const bar = document.createElement('div');
+    bar.id = 'scroll-progress';
+    document.body.appendChild(bar);
+
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = max ? (window.scrollY / max * 100) + '%' : '0%';
+    }, { passive: true });
+  }
+
 })();
