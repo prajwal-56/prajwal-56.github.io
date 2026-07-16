@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support Prajwal Praveen — buy me a coffee, help me grow.">
+  <title>donate — prajwal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='monospace' fill='%237a8f65'%3E%3E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="container">
+
+    <nav class="fade-in">
+      <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="blogs.html">blog</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li><a href="socials.html">socials</a></li>
+        <li><a href="donate.html" class="active">donate</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1 data-scramble>donate</h1>
+
+      <p class="page-desc" data-typewriter="If you think I'm good (or worse) feel free to donate to me. So that I can get better 🙌🏻" data-typewriter-delay="500"></p>
+
+      <div class="donate-card fade-in" style="--delay: 1.8s">
+        <!-- Minimalist vector QR placeholder -->
+        <div class="qr-placeholder-wrapper">
+            <img src="images/qr.jpeg" alt="upi : prajwalpraveen2006@oksbi" class="qr-image" width="300px"> 
+        </div>
+
+        <div class="upi-info">
+          <span class="upi-id-label">UPI ID</span>
+          <div class="upi-input-group">
+            <span class="upi-id" id="upi-val">prajwalpraveen2006@okaxis</span>
+            <button class="copy-btn" id="copy-btn" aria-label="Copy UPI ID">copy</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="fade-in" style="--delay: 2.1s"></footer>
+
+  </div>
+
+  <script src="footer.js"></script>
+  <script src="animate.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var copyBtn = document.getElementById('copy-btn');
+      var upiVal = document.getElementById('upi-val');
+      
+      if (copyBtn && upiVal) {
+        copyBtn.addEventListener('click', function () {
+          var text = upiVal.textContent || upiVal.innerText;
+          navigator.clipboard.writeText(text).then(function () {
+            copyBtn.textContent = 'copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(function () {
+              copyBtn.textContent = 'copy';
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          }).catch(function (err) {
+            console.error('Failed to copy: ', err);
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
