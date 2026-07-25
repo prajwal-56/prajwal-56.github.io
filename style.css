@@ -10,6 +10,14 @@
   box-sizing: border-box;
 }
 
+
+/* highlighting */
+.highlight{
+  color:black;
+  font-weight: bolder;
+  background-color: yellow;
+}
+
 /* --- tokens --- */
 
 :root {
@@ -22,7 +30,7 @@
   --accent-dim: #5a6f4a;
   --border: #1a1a1a;
   --border-subtle: #252525;
-  --font: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  --font: 'Google Sans', sans-serif;
   --max-width: 660px;
 }
 
