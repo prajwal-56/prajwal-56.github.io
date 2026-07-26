@@ -4,10 +4,12 @@
   var theme = stored || 'light';
   document.documentElement.setAttribute('data-theme', theme);
 
-  document.addEventListener('DOMContentLoaded', function () {
-
+  function injectToggle() {
     var nav = document.querySelector('nav ul');
-    if (!nav) return;
+    if (!nav) {
+      requestAnimationFrame(injectToggle);
+      return;
+    }
 
     var li = document.createElement('li');
     li.className = 'theme-toggle';
@@ -54,7 +56,10 @@
 
     li.appendChild(btn);
     nav.appendChild(li);
+  }
 
+  document.addEventListener('DOMContentLoaded', function () {
+    injectToggle();
   });
 
 })();
