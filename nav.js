@@ -5,6 +5,7 @@
 
 const NAV_LINKS = [
   { href: 'index.html',    label: 'home'     },
+  { href: 'whoami.html',   label: 'whoami'   },
   { href: 'projects.html', label: 'projects' },
   { href: 'blogs.html',    label: 'blog'     },
   { href: 'contact.html',  label: 'contact'  },
