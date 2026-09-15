@@ -1,6 +1,6 @@
 [
   {
-    "slug": "hello-friendsfd",
+    "slug": "hello-friend",
     "title": "blog00",
     "date": "24 Jun 2026",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -9,6 +9,6 @@
     "slug" : "ac2604",
     "title" : "Built a linux distro (almost)",
     "date" : "15th Sept 2026",
-    "description" : "My thoughts dump - I helped an organization build Linux Distro (Accessible Coconut 26.04). well.. almost"
+    "description" : "My thoughts dump - I helped an organization build Linux Distro (Accessible Coconut 26.04). well.. almost."
   }
 ]
