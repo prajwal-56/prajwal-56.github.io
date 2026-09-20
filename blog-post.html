@@ -38,7 +38,6 @@
   <script src="footer.js"></script>
   <script src="animate.js"></script>
 
-  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const urlParams = new URLSearchParams(window.location.search);
@@ -91,6 +90,7 @@
 
           const htmlContent = marked.parse(processedText);
           document.getElementById('post-content').innerHTML = htmlContent;
+          initBlogImages(document.getElementById('post-content'));
         })
         .catch(err => {
           console.error(err);
@@ -98,6 +98,78 @@
           document.getElementById('post-content').innerHTML = `<p>Failed to load the post: ${err.message}</p>`;
         });
     });
+  </script>
+
+  <script>
+    /* ── blog image grouping + 3D tilt ── */
+
+    function initBlogImages(root) {
+      if (!root) return;
+
+      /* Step 1 — marked wraps bare <img> tags in <p>; unwrap them */
+      root.querySelectorAll('p').forEach(p => {
+        const kids = Array.from(p.children);
+        if (kids.length > 0 && kids.every(el => el.tagName === 'IMG')) {
+          kids.forEach(img => p.parentNode.insertBefore(img, p));
+          p.remove();
+        }
+      });
+
+      /* Step 2 — collect runs of consecutive top-level <img> nodes
+         and wrap each run in an .img-group of .img-figure cards      */
+      let run = [];
+
+      function flushRun() {
+        if (!run.length) return;
+        const group = document.createElement('div');
+        group.className = 'img-group';
+        run[0].parentNode.insertBefore(group, run[0]);
+        run.forEach(img => {
+          const fig = document.createElement('div');
+          fig.className = 'img-figure';
+          if (img.title) fig.setAttribute('title', img.title);
+          group.appendChild(fig);
+          fig.appendChild(img);
+          attachTilt(fig);
+        });
+        run = [];
+      }
+
+      Array.from(root.childNodes).forEach(node => {
+        if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'IMG') {
+          run.push(node);
+        } else {
+          flushRun();
+        }
+      });
+      flushRun();
+    }
+
+    /* Per-card 3D tilt driven by CSS custom properties */
+    function attachTilt(fig) {
+      const MAX = 8; /* max rotation degrees */
+
+      fig.addEventListener('mousemove', e => {
+        const r  = fig.getBoundingClientRect();
+        const nx = (e.clientX - r.left)  / r.width  - 0.5; /* -0.5 → 0.5 */
+        const ny = (e.clientY - r.top)   / r.height - 0.5;
+        fig.style.setProperty('--ry',  (nx * MAX) + 'deg');
+        fig.style.setProperty('--rx', (-ny * MAX) + 'deg');
+        fig.style.setProperty('--sc', '1.035');
+        /* suppress the slow return transition while moving */
+        fig.style.transition = 'box-shadow 0.2s ease, border-color 0.2s ease';
+      });
+
+      fig.addEventListener('mouseleave', () => {
+        fig.style.setProperty('--rx', '0deg');
+        fig.style.setProperty('--ry', '0deg');
+        fig.style.setProperty('--sc', '1');
+        /* smooth spring-back */
+        fig.style.transition =
+          'transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94),' +
+          'box-shadow 0.25s ease, border-color 0.25s ease';
+      });
+    }
   </script>
 </body>
 </html>

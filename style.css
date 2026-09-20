@@ -633,6 +633,8 @@ footer a:hover {
   font-style: italic;
 }
 
+/* --- blog image group (horizontal strip) --- */
+
 .blog-content img {
   max-width: 100%;
   height: auto;
@@ -640,6 +642,111 @@ footer a:hover {
   border: 1px solid var(--border-subtle);
   margin: 1.5rem 0;
   display: block;
+}
+
+/* auto-grouped consecutive images */
+.img-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.25rem;
+}
+
+.img-group::-webkit-scrollbar {
+  display: none;
+}
+
+.img-figure {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  /* 3D tilt — driven by JS via CSS vars */
+  transform-style: preserve-3d;
+  transform: perspective(600px)
+    rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg))
+    scale(var(--sc, 1));
+  will-change: transform;
+}
+
+.img-figure:hover {
+  border-color: var(--accent-dim);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(122, 143, 101, 0.12);
+}
+
+[data-theme="light"] .img-figure:hover {
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(90, 122, 69, 0.18);
+}
+
+.img-figure img {
+  display: block;
+  height: 180px;
+  width: auto;
+  max-width: none;
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  object-fit: cover;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* single image in group — allow it to be a bit wider */
+.img-group:has(.img-figure:only-child) .img-figure img {
+  height: 220px;
+}
+
+/* --- image + text side-by-side layout --- */
+.img-with-text {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  margin: 1.5rem 0;
+}
+
+.img-with-text .img-figure {
+  flex: 0 0 auto;
+}
+
+.img-with-text .img-figure img {
+  height: 150px;
+}
+
+.img-with-text .img-caption-text {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.75;
+  padding-top: 0.1rem;
+}
+
+@media (max-width: 520px) {
+  .img-with-text {
+    flex-direction: column;
+  }
+
+  .img-figure img {
+    height: 150px !important;
+  }
 }
 
 .blog-content pre {
