@@ -85,7 +85,7 @@
         .then(markdownText => {
           if (!markdownText) return;
 
-          let processedText = markdownText.replace(/!\[\[(.*?)\]\]/g, '![$1](blogs/attachment/$1)');
+          let processedText = markdownText.replace(/!\[\[(.*?)\]\]/g, '![$1](blogs/attachments/$1)');
           processedText = processedText.replace(/\[\[(.*?)\|(.*?)\]\]/g, '[$2](blog-post.html?post=$1)');
           processedText = processedText.replace(/\[\[(.*?)\]\]/g, '[$1](blog-post.html?post=$1)');
 
