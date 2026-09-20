@@ -101,7 +101,7 @@
   </script>
 
   <script>
-    /* ── blog image grouping + 3D tilt ── */
+    /* ── blog image grouping + 3D tilt + lightbox ── */
 
     function initBlogImages(root) {
       if (!root) return;
@@ -130,7 +130,6 @@
           if (img.title) fig.setAttribute('title', img.title);
           group.appendChild(fig);
           fig.appendChild(img);
-          attachTilt(fig);
         });
         run = [];
       }
@@ -143,20 +142,26 @@
         }
       });
       flushRun();
+
+      /* Step 3 — wire up tilt + lightbox on ALL .img-figure elements
+         (covers both pre-written HTML ones and dynamically created ones) */
+      root.querySelectorAll('.img-figure').forEach(fig => {
+        attachTilt(fig);
+        attachLightbox(fig);
+      });
     }
 
-    /* Per-card 3D tilt driven by CSS custom properties */
+    /* ── 3D tilt ── */
     function attachTilt(fig) {
-      const MAX = 8; /* max rotation degrees */
+      const MAX = 8;
 
       fig.addEventListener('mousemove', e => {
         const r  = fig.getBoundingClientRect();
-        const nx = (e.clientX - r.left)  / r.width  - 0.5; /* -0.5 → 0.5 */
-        const ny = (e.clientY - r.top)   / r.height - 0.5;
+        const nx = (e.clientX - r.left) / r.width  - 0.5;
+        const ny = (e.clientY - r.top)  / r.height - 0.5;
         fig.style.setProperty('--ry',  (nx * MAX) + 'deg');
         fig.style.setProperty('--rx', (-ny * MAX) + 'deg');
         fig.style.setProperty('--sc', '1.035');
-        /* suppress the slow return transition while moving */
         fig.style.transition = 'box-shadow 0.2s ease, border-color 0.2s ease';
       });
 
@@ -164,10 +169,85 @@
         fig.style.setProperty('--rx', '0deg');
         fig.style.setProperty('--ry', '0deg');
         fig.style.setProperty('--sc', '1');
-        /* smooth spring-back */
         fig.style.transition =
           'transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94),' +
           'box-shadow 0.25s ease, border-color 0.25s ease';
+      });
+    }
+
+    /* ── lightbox ── */
+    let lb = null; /* singleton overlay */
+
+    function getLightbox() {
+      if (lb) return lb;
+
+      lb = document.createElement('div');
+      lb.id = 'img-lightbox';
+      lb.innerHTML = `
+        <div class="lb-backdrop"></div>
+        <div class="lb-panel">
+          <img class="lb-img" src="" alt="">
+          <p class="lb-caption"></p>
+          <button class="lb-close" aria-label="close">✕</button>
+        </div>
+      `;
+      document.body.appendChild(lb);
+
+      /* close on backdrop or button */
+      lb.querySelector('.lb-backdrop').addEventListener('click', closeLightbox);
+      lb.querySelector('.lb-close').addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      return lb;
+    }
+
+    function openLightbox(src, caption) {
+      const box   = getLightbox();
+      const img   = box.querySelector('.lb-img');
+      const cap   = box.querySelector('.lb-caption');
+      const panel = box.querySelector('.lb-panel');
+
+      img.src = src;
+      cap.textContent = caption || '';
+      cap.style.display = caption ? 'block' : 'none';
+
+      /* reset panel transform for fresh entry animation */
+      panel.style.transition = 'none';
+      panel.style.transform  = 'translateY(18px) scale(0.96)';
+      panel.style.opacity    = '0';
+
+      box.classList.add('lb-open');
+      document.body.style.overflow = 'hidden';
+
+      /* trigger animation next frame */
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          panel.style.transition = 'transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.28s ease';
+          panel.style.transform  = 'translateY(0) scale(1)';
+          panel.style.opacity    = '1';
+        });
+      });
+    }
+
+    function closeLightbox() {
+      if (!lb) return;
+      const panel = lb.querySelector('.lb-panel');
+      panel.style.transition = 'transform 0.25s ease, opacity 0.2s ease';
+      panel.style.transform  = 'translateY(12px) scale(0.97)';
+      panel.style.opacity    = '0';
+      setTimeout(() => {
+        lb.classList.remove('lb-open');
+        document.body.style.overflow = '';
+      }, 220);
+    }
+
+    function attachLightbox(fig) {
+      fig.addEventListener('click', () => {
+        const img     = fig.querySelector('img');
+        const caption = fig.getAttribute('title') || (img && img.getAttribute('title')) || '';
+        if (img) openLightbox(img.src, caption);
       });
     }
   </script>
