@@ -289,6 +289,25 @@
 }
 
 /* ── WHAT I DO ──────────────────────────────────────────── */
+/* Independent flex columns — no shared row tracks */
+.do-cols {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start; /* columns only as tall as their own content */
+}
+
+.do-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  min-width: 0; /* prevent overflow */
+}
+
+@media (max-width: 768px) {
+  .do-cols { flex-direction: column; }
+}
+
 .do-card {
   border: var(--border-thick);
   box-shadow: var(--shadow);
@@ -493,6 +512,25 @@
 }
 
 /* ── EASTER EGG ─────────────────────────────────────────── */
+/* Independent flex columns — expanding one panel never touches the other column */
+.egg-cols {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+}
+
+.egg-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .egg-cols { flex-direction: column; }
+}
+
 .egg-section {
   background: var(--yellow);
   border-top: var(--border-thick);

@@ -82,12 +82,14 @@ p { max-width: 65ch; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: var(--gap);
+  align-items: start; /* each cell only takes the height it needs */
 }
 
 .nb-grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: var(--gap);
+  align-items: start; /* each cell only takes the height it needs */
 }
 
 /* ── 5. Cards ─────────────────────────────────────────── */
