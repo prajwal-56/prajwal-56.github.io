@@ -150,7 +150,9 @@ p { max-width: 65ch; }
 
 /* ── 7. Tags / Badges ─────────────────────────────────── */
 .nb-tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
   border: 2px solid var(--black);
   box-shadow: 2px 2px 0 var(--black);
   padding: 0.2em 0.65em;
@@ -160,6 +162,17 @@ p { max-width: 65ch; }
   background: var(--white);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+/* Logo image inside a tag (devicons) */
+.nb-tag img {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+  object-fit: contain;
+  display: block;
+  /* don't let the image inherit any weird filters */
+  filter: none;
 }
 
 .nb-tag.yellow { background: var(--yellow); }
